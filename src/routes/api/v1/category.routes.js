@@ -4,20 +4,17 @@ const { CategoryController } = require('../../../controller');
 
 
 // http://localhost:8080/api/v1/category/getCategory
-Router.get('/getCategory', CategoryController.getCtaegory)
+
+Router.get('/getAllCategory', CategoryController.getAllCtaegory)
+
+Router.get('/getCategory/:id', CategoryController.getCtaegory)
 
 
 Router.post('/addCategory', CategoryController.addCtaegory)
 
-Router.put('/updateCategory/:id', (req, res) => {
-  console.log(req.body, req.params);
-  res.status(200).json({message:'category Update Successfully.'})
-})
+Router.put('/updateCategory/:id',CategoryController.updateCategory);
 
-Router.delete('/deleteCategory', (req, res) => {
-  console.log(req.query.id);
-  res.status(200).json({message:'Delete Category Successfully.'})
-})
+// Router.delete('/deleteCategory',CategoryController.deleteCategory)
 
 module.exports = Router;
 
