@@ -1,16 +1,13 @@
 const express = require('express');
+const { CategoryController } = require('../../../controller');
+
 const Router = express.Router();
 
 // http://localhost:8080/api/v1/category/getCategory
-Router.get('/getCart', (req, res) => {
-  res.status(200).json({id:120,name:'Section '});
-})
+Router.get('/getCart',CategoryController.getCtaegory)
 
 
-Router.post('/addCart', (req, res) => {
-  console.log(req.body);
-  res.status(200).json({message:'Section Added'})
-})
+// Router.post('/addCart', updateCategory())
 
 Router.put('/updateCart/:id', (req, res) => {
   console.log(req.body, req.params);

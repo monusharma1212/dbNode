@@ -1,0 +1,1 @@
+module.exports.CategoryController = require('./categories.controller');
