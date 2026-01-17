@@ -31,16 +31,16 @@ const { CourseController } = require('../../../controller');
 
 // http://localhost:8080/api/v1/category/getCategory
 
-Router.get('/getAllCourse', CategoryController.getAllCtaegory)
+Router.get('/getAllCourse', CourseController.getAllCourse)
 
-Router.get('/getCourse/:id', CategoryController.getCtaegory)
+// Router.get('/getCourse/:id', CourseController.getCourse)
 
 
-Router.post('/addCourse', CategoryController.addCtaegory)
+Router.post('/addCourse', CourseController.addCourse)
 
-Router.put('/updateCourse/:id',CategoryController.updateCategory);
+Router.put('/updateCourse/:id',CourseController.updateCourse);
 
-Router.delete('/deleteCourse/:id',CategoryController.deleteCategory)
+Router.delete('/deleteCourse/:id',CourseController.deleteCourse)
 
 module.exports = Router;
 

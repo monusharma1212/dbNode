@@ -1,10 +1,10 @@
-const Category = require("../model/categroies.model");
+const Course = require("../model/courses.model");
 
-const addCtaegory = async (req,res) =>{
+const addCourse = async (req,res) =>{
     try{
         console.log(req.body)
 
-        const data = await Category.create(req.body)
+        const data = await Course.create(req.body)
 
         if(!data)
         {
@@ -18,28 +18,36 @@ const addCtaegory = async (req,res) =>{
     }
 }
 // allCategories 
-const getAllCtaegory = async(req,res) =>{
-try{
-        console.log(req.body)
+const getAllCourse = async (req, res) => {
+    try {
+        const data = await Course.find();
 
-        const data = await Category.find();
-
-        if(!data)
-        {
-            return res.status(400).json({status:false, data:[], Message:"Does Not Fetched the Data"});
+        if (data.length === 0) {
+            return res.status(404).json({
+                status: false,
+                data: [],
+                message: "No courses found"
+            });
         }
-        return res.status(200).json({status:true, data:data, Message:"Data get Succesfully"});
+
+        return res.status(200).json({
+            status: true,
+            data: data,
+            message: "Courses fetched successfully"
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            status: false,
+            message: "Internal Server Error"
+        });
     }
-    catch(error)
-    {
-        return res.status(500).json({status:false, data:false, Message:"Internal Error"});
-    }
-    
-}
-const getCtaegory = async(req,res) =>{
+};
+
+const getCourse = async(req,res) =>{
    try{
 
-        const data = await Category.findById(req.params.id);
+        const data = await Course.findById(req.params.id);
 
         if(!data)
         {
@@ -53,10 +61,11 @@ const getCtaegory = async(req,res) =>{
     }
     
 }
-const updateCategory = async(req,res) =>{
+
+const updateCourse = async(req,res) =>{
    try{
 
-        const data = await Category.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true});
+        const data = await Course.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true});
 
         if(!data)
         {
@@ -70,13 +79,13 @@ const updateCategory = async(req,res) =>{
     }
     
 }
-const deleteCategory = async(req,res) =>{
+const deleteCourse = async(req,res) =>{
     try{
 
-        const data = await Category.findByIdAndDelete(req.params.id);
+        const data = await Course.findByIdAndDelete(req.params.id);
 
         if(!data)
-        {
+        {                                                                                                                                                                                                                                                                                        
             return res.status(400).json({status:false, data:[], Message:"Data Not Fetched SuccesFully"});
         }
         return res.status(200).json({status:true, data:data, Message:"Data Fetched SuccesFully"});
@@ -89,9 +98,9 @@ const deleteCategory = async(req,res) =>{
 }
 
 module.exports = {
-    addCtaegory,
-    getCtaegory,
-    getAllCtaegory,
-    updateCategory,
-    deleteCategory
+    addCourse,
+    getCourse,
+    getAllCourse,
+    updateCourse,
+    deleteCourse
 }

@@ -12,7 +12,7 @@ const coursesSchema = new mongoose.Schema({
     },
     parent_id:{
         type:mongoose.Types.ObjectId,
-        ref: "categories",
+        ref: "courses",
         default: null
     },
     category_img:{
@@ -27,6 +27,6 @@ const coursesSchema = new mongoose.Schema({
     versionKey:false
 }) 
 
-const Category = mongoose.model('categories', categoriesSchema);
+const Course = mongoose.model('courses', coursesSchema);
 
-module.exports = Category;
+module.exports = Course;
