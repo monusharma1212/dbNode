@@ -14,7 +14,7 @@ Router.post('/addCategory', CategoryController.addCtaegory)
 
 Router.put('/updateCategory/:id',CategoryController.updateCategory);
 
-// Router.delete('/deleteCategory',CategoryController.deleteCategory)
+Router.delete('/deleteCategory/:id',CategoryController.deleteCategory)
 
 module.exports = Router;
 
