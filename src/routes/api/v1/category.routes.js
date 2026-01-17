@@ -2,12 +2,13 @@ const express = require('express');
 const Router = express.Router();
 
 // http://localhost:8080/api/v1/category/getCategory
+
 Router.get('/getCategory', (req, res) => {
   res.status(200).json({id:101,name:'abc'});
 })
 
 
-Router.post('/addCategory', (req, res) => {
+Router.post('/addCategory', (req, res) => { 
   console.log(req.body);
   res.status(200).json({message:'category Added'})
 })
