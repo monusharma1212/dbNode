@@ -1,26 +1,70 @@
 const express = require('express');
 const Router = express.Router();
+const { CategoryController } = require('../../../controller');
+
 
 // http://localhost:8080/api/v1/category/getCategory
-Router.get('/getCategory', (req, res) => {
-  res.status(200).json({id:101,name:'abc'});
-})
+
+Router.get('/getAllCategory', CategoryController.getAllCtaegory)
+
+Router.get('/getCategory/:id', CategoryController.getCtaegory)
 
 
-Router.post('/addCategory', (req, res) => {
-  console.log(req.body);
-  res.status(200).json({message:'category Added'})
-})
+Router.post('/addCategory', CategoryController.addCtaegory)
 
-Router.put('/updateCategory/:id', (req, res) => {
-  console.log(req.body, req.params);
-  res.status(200).json({message:'category Update Successfully.'})
-})
+Router.put('/updateCategory/:id',CategoryController.updateCategory);
 
-Router.delete('/deleteCategory', (req, res) => {
-  console.log(req.query.id);
-  res.status(200).json({message:'Delete Category Successfully.'})
-})
+Router.delete('/deleteCategory/:id',CategoryController.deleteCategory)
 
 module.exports = Router;
 
+5. List users and their total likes
+Total Users 	
+[
+  {
+    $count: 'TotalUsers'
+  }
+]
+
+[
+  {
+    $unwind: "$posts"
+  },
+  {
+    $group: {
+      _id: null,
+      totalLikes: {
+        $sum:"$posts.likes"
+      }
+    }
+  }
+]
+
+
+6. Find the user name with the maximum likes of posts.
+
+[
+  {
+    $unwind: "$posts"
+  },
+  {
+    $group: {
+      _id: "$posts.likes",
+      totalLikes: {
+        $sum:"$posts.likes"
+      }
+    }
+  }
+]
+
+
+7. Count the number of active and inactive users.
+
+[
+  {
+    $group: {
+      _id: "$isActive",
+      totalUsers: { $sum: 1 }
+    }
+  }
+]
