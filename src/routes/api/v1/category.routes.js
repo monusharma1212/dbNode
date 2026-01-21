@@ -18,3 +18,53 @@ Router.delete('/deleteCategory/:id',CategoryController.deleteCategory)
 
 module.exports = Router;
 
+5. List users and their total likes
+Total Users 	
+[
+  {
+    $count: 'TotalUsers'
+  }
+]
+
+[
+  {
+    $unwind: "$posts"
+  },
+  {
+    $group: {
+      _id: null,
+      totalLikes: {
+        $sum:"$posts.likes"
+      }
+    }
+  }
+]
+
+
+6. Find the user name with the maximum likes of posts.
+
+[
+  {
+    $unwind: "$posts"
+  },
+  {
+    $group: {
+      _id: "$posts.likes",
+      totalLikes: {
+        $sum:"$posts.likes"
+      }
+    }
+  }
+]
+
+
+7. Count the number of active and inactive users.
+
+[
+  {
+    $group: {
+      _id: "$isActive",
+      totalUsers: { $sum: 1 }
+    }
+  }
+]
