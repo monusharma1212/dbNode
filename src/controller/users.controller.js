@@ -20,3 +20,6 @@ const registerUser = async(req,res) =>{
 module.exports = {
     registerUser
 }
+
+// har ek function ko module.export ke andar dalna h and uska route banana h 
+// 

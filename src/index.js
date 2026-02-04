@@ -2,7 +2,12 @@ const express = require('express')
 const app = express()
 const port = 3000
 require('dotenv').config();
+
+
 app.use(express.json());
+
+
+
 // app.use('/static',express.static('public'))
 const routes = require("./routes/api/v1/index");
 const connectMongoDB = require('./db/mongoDB');
@@ -21,3 +26,10 @@ app.listen(process.env.PORT, ()=>{
 });   
 
 // git fetch origin
+
+
+// set cookies cookieparser(library) jwtjs token creater access and refresh token 
+
+// verify tokens and refresh token 
+
+// 
