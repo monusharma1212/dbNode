@@ -1,10 +1,8 @@
 const express = require('express');
-const { UserCcontroller } = require('../../../controller');
-const Router = express.Router();
+const router = express.Router();
 
-// http://localhost:8080/api/v1/category/getCategory
-Router.get('/registerUser',UserCcontroller.registerUser)
+const UserController = require('../../../controller/users.controller'); // ⭐ DIRECT
 
+router.get('/registerUser', UserController.registerUser);
 
-
-module.exports = Router;
+module.exports = router;
