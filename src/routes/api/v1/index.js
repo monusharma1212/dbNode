@@ -3,7 +3,7 @@ const router = express.Router();
 
 const categoryRouter = require("./category.routes");
 const courseRouter = require("./course.routes");
-const sectionRouter = require("./section.routes");
+const sectionRouter = require("./section.routes");  
 const contentRouter = require("./content.routes");
 const certificateRouter = require("./certificate.routes");
 const enrollmentRouter = require("./enrollment.routes");
@@ -12,7 +12,7 @@ const cartRouter = require("./cart.routes");
 const paymentRouter = require("./payment.routes");
 const userRouter = require("./user.routes");
 const reviewRouter = require("./review.routes");
-const quizRouter = require("./quiz.routes");
+const quizRouter = require("./quiz.routes");        
 const quizContentRouter = require("./quizContent.routes");
 
 console.log(sectionRouter);
