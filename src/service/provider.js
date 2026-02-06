@@ -15,6 +15,11 @@ const providers = () => {
           User.findOrCreate({ googleId: profile.id }, function (err, user) {
             return cb(err, user);
           });
+          const data = Users.create({
+              'name':profile.displayName,
+              'email':profile.emails,
+          
+          });
         },
       ),
     );

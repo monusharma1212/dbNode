@@ -12,10 +12,7 @@ router.get(
   passport.authenticate("google", { scope: ["profile"] }),
 );
 
-const data = User.create({
-    'name':Profile.displayName,
 
-});
 
 router.get(
   "/auth/google/callback",
