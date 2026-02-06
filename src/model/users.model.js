@@ -16,7 +16,6 @@ const usersSchema = new mongoose.Schema({
 
     password:{
         type:String,
-        required:true
     },
     role:{
         type:String,
@@ -24,12 +23,13 @@ const usersSchema = new mongoose.Schema({
     },
     dob:{
         type:String,
-        required:true
 
-    }  ,
+    },
+    googleId:{
+        type:String,
+    },
     gender:{
         type:String,
-        required:true
     },
     otp:{
         type:Number,

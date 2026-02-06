@@ -17,7 +17,6 @@ const registerUser = async (req, res) => {
 
     const hashPassword = await bcrypt.hash(password, 10);
 
-<<<<<<< HEAD
     const user = await Users.create({
       ...req.body,
       password: hashPassword
@@ -54,11 +53,3 @@ const registerUser = async (req, res) => {
 };
 
 module.exports = { registerUser };
-=======
-module.exports = {
-    registerUser
-}
-
-// har ek function ko module.export ke andar dalna h and uska route banana h 
-// 
->>>>>>> ed2ec97ab21c83951fa2a6f41d0c842da4cee852

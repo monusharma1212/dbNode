@@ -2,17 +2,24 @@ const express = require('express')
 const app = express()
 const port = 3000
 require('dotenv').config();
-
+const passport = require("passport");
+const routes = require("./routes/api/v1/index");
+const connectMongoDB = require('./db/mongoDB');
+const providers = require('./service/provider');
 
 app.use(express.json());
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+    app.use(passport.initialize());
+    app.use(passport.session());
 
+    providers();
 
 
 // app.use('/static',express.static('public'))
-const routes = require("./routes/api/v1/index");
-const connectMongoDB = require('./db/mongoDB');
 
-connectMongoDB()
+
+
+connectMongoDB()  
 
 console.log(process.env.PORT);
 

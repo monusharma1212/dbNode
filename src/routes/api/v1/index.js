@@ -15,7 +15,7 @@ const reviewRouter = require("./review.routes");
 const quizRouter = require("./quiz.routes");        
 const quizContentRouter = require("./quizContent.routes");
 
-console.log(sectionRouter);
+// console.log(sectionRouter);
 
 
 
@@ -34,21 +34,6 @@ router.use("/user",userRouter);
 router.use("/review",reviewRouter);
 router.use("/quiz",quizRouter);
 router.use("/quizContent",quizContentRouter);
-
-
-console.log("category:", typeof categoryRouter);
-console.log("course:", typeof courseRouter);
-console.log("section:", typeof sectionRouter);
-console.log("content:", typeof contentRouter);
-console.log("certificate:", typeof certificateRouter);
-console.log("enrollment:", typeof enrollmentRouter);
-console.log("progress:", typeof progressRouter);
-console.log("cart:", typeof cartRouter);
-console.log("payment:", typeof paymentRouter);
-console.log("user:", typeof userRouter);
-console.log("review:", typeof reviewRouter);
-console.log("quiz:", typeof quizRouter);
-console.log("quizContent:", typeof quizContentRouter);
 
 
 module.exports = router;
