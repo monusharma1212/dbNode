@@ -9,7 +9,7 @@ router.get("/registerUser", UserController.registerUser);
 
 router.get(
   "/auth/google",
-  passport.authenticate("google", { scope: ["profile"] }),
+  passport.authenticate("google", { scope: ["profile", "email"] }),
 );
 
 
@@ -17,10 +17,12 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
-  function (req, res) {
+  function (req, res) { 
+    console.log('callback' + res.user)
     // Successful authentication, redirect home.
     res.redirect("/");
   },
 );
+
 
 module.exports = router;

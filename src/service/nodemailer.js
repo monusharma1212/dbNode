@@ -2,7 +2,7 @@
 const nodemailer = require('nodemailer');
 
 
-const sendMail = async (email, subject ,message) => {
+const sendMail = async (email, subject, message) => {
     try {
 
         let transporter = nodemailer.createTransport({
@@ -10,7 +10,7 @@ const sendMail = async (email, subject ,message) => {
             auth: {
                 user: 'monukumarsharma070@gmail.com',
                 pass: 'ldyq gttx umfc rjad'
-                
+
 
             }
         });
@@ -32,7 +32,7 @@ const sendMail = async (email, subject ,message) => {
         });
 
     } catch (error) {
-        throw new Error("Send Email Error"+error.message)
+        throw new Error("Send Email Error" + error.message)
 
     }
 }
